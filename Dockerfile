@@ -19,12 +19,14 @@ RUN useradd -m -r user && \
 COPY src/requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY src .
+COPY . .
 
 USER user
 
 ARG GIT_HASH
 ENV GIT_HASH=${GIT_HASH:-dev}
 
-ENTRYPOINT ["/tini", "--", "/hello.py"]
+ENTRYPOINT ["/tini", "--"]
+
+CMD ["/src/hello.py"]
 
