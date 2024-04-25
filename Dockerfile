@@ -28,5 +28,5 @@ ENV GIT_HASH=${GIT_HASH:-dev}
 
 ENTRYPOINT ["/tini", "--"]
 
-CMD ["/src/hello.py"]
+CMD ["python","hello.py"]
 
