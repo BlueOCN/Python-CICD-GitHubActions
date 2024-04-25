@@ -15,7 +15,7 @@ test:
 	python -m pytest -vv ./src/test_hello.py
 
 format:
-	black .\src\*.py
+	black ./src/*.py
 
 lint:
 	pylint --disable=R,C ./src/hello.py
