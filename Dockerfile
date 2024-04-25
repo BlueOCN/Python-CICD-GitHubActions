@@ -1,8 +1,8 @@
-# 1. Base image
 FROM python:3.8.3-slim-buster
 
-# 2. Copy files
 COPY . /src
 
-# 3. Install dependencies
+ARG GIT_HASH
+ENV GIT_HASH=${GIT_HASH:-dev}
+
 RUN pip install -r /src/requirements.txt

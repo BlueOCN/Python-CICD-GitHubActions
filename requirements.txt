@@ -1,3 +1,0 @@
-pylint==2.12.2
-pytest==7.0.1
-black==22.3.0
