@@ -8,7 +8,7 @@ setup:
 
 install:
 	pip install --upgrade pip &&\
-		pip install -r .\src\requirements.txt
+		pip install -r .\\src\\requirements.txt
 
 test:
 	python -m pytest -vv .\src\test_hello.py
