@@ -19,7 +19,7 @@ RUN useradd -m -r user && \
 COPY src/requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY src .
 
 USER user
 
