@@ -12,13 +12,13 @@ install:
 		pip install -r ./src/requirements.txt
 
 test:
-	python -m pytest -vv .\src\test_hello.py
+	python -m pytest -vv ./src/test_hello.py
 
 format:
 	black .\src\*.py
 
 lint:
-	pylint --disable=R,C .\src\hello.py
+	pylint --disable=R,C ./src/hello.py
 
 .PHONY: clean
 clean:
