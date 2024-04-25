@@ -16,7 +16,7 @@ WORKDIR /project
 RUN useradd -m -r user && \
     chown user /project
 
-COPY requirements.txt ./
+COPY src/requirements.txt ./
 RUN pip install -r requirements.txt
 
 COPY . .
