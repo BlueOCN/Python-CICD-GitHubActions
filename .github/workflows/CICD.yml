@@ -34,6 +34,15 @@ jobs:
     - name: Format code with black
       run: |
         make -f MakeFile format
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: bigocean98/test_repo
+        tags: Staging
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
     
   DeployDev:
     name: Deploy to Dev 
@@ -44,14 +53,8 @@ jobs:
       name: Development
       url: 'http://dev.myapp.com'
     steps:
-      - name: Build & push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: bigocean98/test_repo
-          tags: Development
-          registry: docker.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Deploy to Dev Env
+        run: echo I am deploying! 
     
   DeployStaging:
     name: Deploy to Staging 
@@ -62,14 +65,8 @@ jobs:
       name: Staging
       url: 'http://test.myapp.com'
     steps:
-      - name: Build & push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: bigocean98/test_repo
-          tags: Staging
-          registry: docker.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Deploy to Stage Env
+        run: echo I am deploying! 
             
   DeployProd:
     name: Deploy to Production 
@@ -79,12 +76,6 @@ jobs:
       name: Production
       url: 'http://www.myapp.com'
     steps:
-      - name: Build & push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: bigocean98/test_repo
-          tags: Production
-          registry: docker.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Deploy to Production Env
+        run: echo I am deploying! 
     
